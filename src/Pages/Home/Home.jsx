@@ -53,8 +53,8 @@ function Home() {
     },
     {
       id: "annual-cultural-function",
-      title: "Annual Cultural Function",
-      description: "Celebrate corporate spirit through music, drama, and cultural performances that foster unity and creativity.",
+      title: "Cultural Function", 
+      description: "Celebrate corporate spirit through music, drama, and cultural performances that foster unity.",
       color: "#e67e22",
       features: ["Team Bonding", "Talent Showcase", "Entertainment", "Corporate Culture"],
       animation: conf,

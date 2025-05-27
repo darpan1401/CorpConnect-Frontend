@@ -1,0 +1,320 @@
+/* Hero Section */
+.aboutPage {
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+.aboutHero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aboutTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.aboutSubtitle {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.welcomeAnimation {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 0;
+  max-width: 500px;
+}
+
+/* Mission Section */
+.aboutSection {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #5a6c7d;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.missionCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.missionCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.missionCard:hover {
+  transform: translateY(-5px);
+}
+
+.missionIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+  width: 80px;
+  height: 80px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.missionIcon svg {
+  font-size: 2.5rem;
+}
+
+.reasonTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.reasonDescription {
+  color: #5a6c7d;
+  line-height: 1.6;
+}
+
+/* Team Section */
+.teamSection {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+.teamCard {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.teamCard:hover {
+  transform: translateY(-5px);
+}
+
+.teamImage {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.teamInfo {
+  padding: 1.5rem;
+}
+
+.teamName {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.teamRole {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Values Section */
+.valuesSection {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.valueCard {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+}
+
+.valueIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+  width: 80px;
+  height: 80px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.valueIcon svg {
+  font-size: 2.5rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white; /* Explicitly set to white */
+}
+
+.ctaContent p {
+  font-size: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: white; /* Ensure paragraph is also white */
+}
+
+.ctaActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btnLarge {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.btnPrimary {
+  background-color: white;
+  color: #667eea;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btnSecondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .aboutTitle {
+    font-size: 2.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .teamGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .ctaContent h2 {
+    font-size: 2rem;
+  }
+  
+  .missionIcon, .valueIcon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .missionIcon svg, .valueIcon svg {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutTitle {
+    font-size: 2rem;
+  }
+  
+  .missionCards,
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .missionIcon, .valueIcon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .missionIcon svg, .valueIcon svg {
+    font-size: 1.75rem;
+  }
+}

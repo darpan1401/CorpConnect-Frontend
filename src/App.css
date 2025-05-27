@@ -1,5 +1,47 @@
+/* Add these rules to the top of your App.css file */
+html {
+  overflow-y: scroll;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* Fix for SweetAlert causing layout shifts */
+body.swal2-shown {
+  padding-right: 0 !important;
+  overflow-y: auto !important;
+}
+
+body.swal2-height-auto {
+  height: 100% !important;
+}
+
+/* Rest of your existing App.css styles */
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Add in your global CSS */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .App-logo {
@@ -36,3 +78,20 @@
     transform: rotate(360deg);
   }
 }
+
+/* Responsive container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+}
+
+
+

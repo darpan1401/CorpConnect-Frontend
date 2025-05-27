@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.loginContent {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  gap: 30px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.leftSide {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lottieAnimation {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+.rightSide {
+  flex: 1 1 60%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.appTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+form input,
+form select {
+  background: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  margin-bottom: 18px;
+  width: 100%;
+  transition: all 0.3s ease;
+  color: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23333' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+  color: #333;
+}
+
+form select:invalid {
+  color: #777;
+}
+
+form input::placeholder {
+  color: #777;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: #f8f9ff;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+}
+
+.loginBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.loginBtn:disabled {
+  background: #cbd5e0;
+  cursor: not-allowed;
+}
+
+.loginBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #5a6eea, #6a3a9c);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.signupLink {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.signupLink a {
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  padding: 12px 24px;
+  border-radius: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+}
+
+.signupLink a:hover {
+  background: linear-gradient(135deg, #5a6eea, #6a3a9c);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Error message styling */
+.error {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: -12px;
+  margin-bottom: 12px;
+  text-align: left;
+  width: 100%;
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.error svg {
+  flex-shrink: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .loginContent {
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .leftSide,
+  .rightSide {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .lottieAnimation {
+    max-width: 250px;
+  }
+  
+  .appTitle {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginContent {
+    padding: 20px 15px;
+  }
+  
+  .appTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  form input,
+  form select {
+    font-size: 0.9rem;
+    padding: 12px 14px;
+  }
+
+  .loginBtn {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .lottieAnimation {
+    max-width: 200px;
+  }
+  
+  .signupLink {
+    margin-top: 20px;
+  }
+  
+  .signupLink a {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .loginContent {
+    padding: 15px 10px;
+  }
+  
+  .appTitle {
+    font-size: 1.8rem;
+  }
+  
+  form input,
+  form select {
+    padding: 10px 12px;
+  }
+  
+  .loginBtn {
+    padding: 10px;
+  }
+}

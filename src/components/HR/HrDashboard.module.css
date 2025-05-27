@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.container {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  padding: 30px;
+  background: linear-gradient(135deg, #f0f4ff, #ffffff);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Headings */
+h2 {
+  margin-bottom: 25px;
+  color: #667eea;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Welcome banner */
+.welcomeBanner {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  padding: 18px 24px;
+  margin-bottom: 30px;
+  border-left: 5px solid #667eea;
+  border-radius: 10px;
+  color: #4a5568;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+/* Cards container for events */
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* Individual event card */
+.eventCard {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  max-width: 340px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eventCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.eventCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+}
+
+.eventCard h3 {
+  margin-top: 0;
+  color: #4a5568;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+}
+
+.eventCard p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+/* Download PDF button */
+.downloadBtn {
+  margin-top: auto;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.downloadBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* No events message */
+.noEvents {
+  text-align: center;
+  padding: 40px 0;
+  color: #a0aec0;
+  font-style: italic;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .container {
+    padding: 25px 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .eventCard {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .eventCard {
+    max-width: 100%;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px 15px;
+  }
+  
+  .eventCard {
+    padding: 20px;
+  }
+  
+  .downloadBtn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeBanner {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .eventCard h3 {
+    font-size: 1.3rem;
+  }
+}

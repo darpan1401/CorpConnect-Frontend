@@ -61,18 +61,18 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showDropdown]); // Removed styles.userMenu from dependency array
+  }, [showDropdown]); 
 
-  // Determine what text to show in the account button
+  
   const getAccountButtonText = () => {
     if (!user) return "Account";
     
-    // For normal users (not admin or hr), show their name
+    
     if (role !== "admin" && role !== "hr" && userName) {
       return userName;
     }
     
-    // For admin and hr, just show "Account"
+   
     return "Account";
   };
 

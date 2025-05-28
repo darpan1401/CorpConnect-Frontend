@@ -11,10 +11,14 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './Pages/Home/Home';
 import Contact from './Pages/Contact/Contact';
 import About from './Pages/About/About';
+import Services from './Pages/Services/Services';
+import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
+import EventFlow from './Pages/EventFlow/EventFlow';
+
 import { useEffect } from 'react';
 
 function App() {
-  // Check for corrupted localStorage data on app load
+  
   useEffect(() => {
     try {
       const userString = localStorage.getItem("user");
@@ -36,9 +40,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
+          <Route path="/services/:serviceId/:eventId/flow" element={<EventFlow />} />
+          
           {/* Protected routes with role requirements */}
           <Route
             path="/admin/dashboard"
@@ -68,3 +75,4 @@ function App() {
 }
 
 export default App;
+

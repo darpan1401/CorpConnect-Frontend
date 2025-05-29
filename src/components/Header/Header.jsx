@@ -3,23 +3,29 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { MdAccountCircle, MdMenu, MdClose } from "react-icons/md";
 import styles from "./Header.module.css";
+import corpKitesLogo from "../../assets/corpkites-logo.png"; // Import the logo image
 
 export default function Header() {
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerMounted, setHeaderMounted] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   const role = user?.role || "";
   const userName = user?.empname || "";
 
   const publicRoutes = ["/", "/about", "/contact", "/services"];
 
+  // Enable transitions after initial render to prevent animation on page load
+  useEffect(() => {
+    setHeaderMounted(true);
+  }, []);
+
   const handleNavigation = (e, path) => {
     e.preventDefault();
     const isPublic = publicRoutes.includes(path);
 
     if (!user && !isPublic) {
-      
       setMenuOpen(false);
       
       Swal.fire({
@@ -63,22 +69,22 @@ export default function Header() {
     };
   }, [showDropdown]); 
 
-  
   const getAccountButtonText = () => {
     if (!user) return "Account";
-    
     
     if (role !== "admin" && role !== "hr" && userName) {
       return userName;
     }
     
-   
     return "Account";
   };
 
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>CorpKites</div>
+    <header className={`${styles.header} ${headerMounted ? styles.headerMounted : ''}`}>
+      <a href="/" onClick={(e) => handleNavigation(e, "/")} className={styles.logo}>
+        <img src={corpKitesLogo} alt="CorpKites Logo" className={styles.logoIcon} />
+        <span className={styles.logoText}>CorpKites</span>
+      </a>
       
       <button 
         className={styles.navToggle} 
@@ -187,6 +193,10 @@ export default function Header() {
     </header>
   );
 }
+
+
+
+
 
 
 

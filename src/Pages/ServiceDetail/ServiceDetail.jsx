@@ -3,13 +3,51 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { FaMapMarkerAlt, FaCalendarAlt, FaUsers, FaMoneyBillWave, FaArrowLeft, FaInfoCircle } from 'react-icons/fa';
 import styles from './ServiceDetail.module.css';
 
-// Service trip data
+// fun friday
+import cooking from '../../aservicephotos/cooking.jpeg';
+import gaming from '../../aservicephotos/gaming.jpeg';
+import movie from '../../aservicephotos/movie.jpeg';
+
+// social activities
+import beach from '../../aservicephotos/beach.jpg';
+import plants from '../../aservicephotos/plants.jpeg';
+import blood from '../../aservicephotos/blood.jpg';
+
+//corporate trips
+import bali from '../../aservicephotos/bali.jpg';
+import goa from '../../aservicephotos/goa.jpeg';
+import mumbai from '../../aservicephotos/mumbai.jpeg';
+import bangalore from '../../aservicephotos/banglore.jpeg';
+import kerala from '../../aservicephotos/kerala.jpeg';
+import rajasthan from '../../aservicephotos/rajasthan.jpeg';
+
+//conferences
+import tech from '../../aservicephotos/tech.jpg';
+import leadership from '../../aservicephotos/leadership.jpg';
+import hr from '../../aservicephotos/hr.jpg';
+
+
+//cultural events
+import cuisine from '../../aservicephotos/cuisine day.jpg';
+import costume from '../../aservicephotos/costume.jpg';
+import music from '../../aservicephotos/music.jpg';
+import food from '../../aservicephotos/food fest.jpg';
+import heritage from '../../aservicephotos/heritage.jpg';
+import folk from '../../aservicephotos/folk.jpg';
+
+//weekend outing
+import hiking from '../../aservicephotos/hiking.jpeg';
+import bbeach from '../../aservicephotos/Beach Retreat.jpeg';
+import park from '../../aservicephotos/park.jpeg';
+
+
+
 const tripData = {
   "corporate-trips": [
     {
       id: "bali",
       destination: "Bali",
-      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4",
+      image: bali,
       duration: "5 Days, 4 Nights",
       price: "₹23,000",
       capacity: "2 Adults",
@@ -18,7 +56,7 @@ const tripData = {
     {
       id: "goa",
       destination: "Goa",
-      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2",
+      image: goa,
       duration: "4 Days, 3 Nights",
       price: "₹15,000",
       capacity: "2 Adults",
@@ -27,7 +65,7 @@ const tripData = {
     {
       id: "mumbai",
       destination: "Mumbai",
-      image: "https://images.unsplash.com/photo-1529253355930-ddbe423a2ac7",
+      image: mumbai,
       duration: "3 Days, 2 Nights",
       price: "₹12,000",
       capacity: "2 Adults",
@@ -36,18 +74,43 @@ const tripData = {
     {
       id: "bangalore",
       destination: "Bangalore",
-      image: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2",
+      image: bangalore,
       duration: "3 Days, 2 Nights",
       price: "₹13,500",
       capacity: "2 Adults",
       description: "Visit India's tech hub. Ideal for tech companies and innovation workshops."
+    },
+    {
+      id: "kerala",
+      destination: "Kerala",
+      image: kerala,
+      duration: "4 Days, 3 Nights",
+      price: "₹16,500",
+      capacity: "2 Adults",
+      description:
+        "Explore God's Own Country with backwaters, hill stations, and spice plantations. Perfect for team retreats in nature.",
+    },
+    {
+      id: "rajasthan",
+      destination: "Rajasthan",
+      image: rajasthan,
+      duration: "5 Days, 4 Nights",
+      price: "₹18,000",
+      capacity: "2 Adults",
+      description:
+        "Experience royal heritage and desert landscapes. Ideal for cultural immersion and leadership workshops.",
     }
   ],
+
+
+
+
+
   "fun-fridays": [
     {
       id: "cooking-challenge",
       destination: "Cooking Challenge",
-      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d",
+      image: cooking,
       duration: "Half Day",
       price: "₹2,500",
       capacity: "Up to 20 people",
@@ -56,7 +119,7 @@ const tripData = {
     {
       id: "game-tournament",
       destination: "Game Tournament",
-      image: "https://images.unsplash.com/photo-1511882150382-421056c89033",
+      image: gaming,
       duration: "Half Day",
       price: "₹1,800",
       capacity: "Up to 30 people",
@@ -65,45 +128,189 @@ const tripData = {
     {
       id: "movie-night",
       destination: "Movie Night",
-      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
+      image: movie,
       duration: "Evening",
       price: "₹1,200",
       capacity: "Up to 50 people",
       description: "Relaxing movie nights with discussions to unwind and bond after a busy week."
     }
   ],
-  "team-building": [
+
+
+
+
+
+
+  "social-activities": [
     {
-      id: "adventure-camp",
-      destination: "Adventure Camp",
-      image: "https://images.unsplash.com/photo-1517164850305-99a3e65bb47e",
-      duration: "2 Days",
-      price: "₹8,000",
-      capacity: "Up to 30 people",
-      description: "Outdoor adventure activities designed to build trust and teamwork."
+      id: "beach-cleanup",
+      destination: "Beach Cleanup Drive",
+      image: beach,
+      duration: "Half Day",
+      price: "₹0",
+      capacity: "Unlimited",
+      description: "Join hands to clean the local beach and contribute to a greener environment."
     },
-    // Add more team building activities
+    {
+      id: "tree-plantation",
+      destination: "Tree Plantation",
+      image: plants,
+      duration: "Half Day",
+      price: "₹500",
+      capacity: "Up to 50 people",
+      description: "Engage in planting trees and spreading awareness for a sustainable future."
+    },
+    {
+      id: "blood-donation",
+      destination: "Blood Donation Camp",
+      image: blood,
+      duration: "2 Hours",
+      price: "₹0",
+      capacity: "Unlimited",
+      description: "Help save lives by participating in a community blood donation event."
+    }
   ],
+
+
+
+
   "conferences": [
     {
       id: "tech-summit",
       destination: "Tech Summit",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87",
+      image: tech,
       duration: "3 Days",
       price: "₹20,000",
       capacity: "Up to 100 people",
       description: "Professional tech conference with industry speakers and networking opportunities."
     },
-    // Add more conference options
+    {
+      id: "leadership-summit",
+      destination: "Leadership Summit",
+      image: leadership,
+      duration: "2 Days",
+      price: "₹18,000",
+      capacity: "Up to 80 people",
+      description: "Empower leaders with sessions on management, innovation, and business strategy."
+    },
+    {
+      id: "hr-conclave",
+      destination: "HR Conclave",
+      image: hr,
+      duration: "1 Day",
+      price: "₹10,000",
+      capacity: "Up to 60 people",
+      description: "Insightful discussions on HR best practices, employee engagement, and talent retention."
+    }
+    // add more as per need
+  ],
+
+  
+
+  "cultural-events": [
+    {
+      id: "cultural-cuisine-day",
+      destination: "Cultural Cuisine Day",
+      image: cuisine,
+      duration: "Full Day",
+      price: "₹5,000",
+      capacity: "Up to 50 people",
+      description: "Celebrate world cultures through a day of cooking and tasting traditional dishes."
+    },
+    {
+      id: "themed-costume-day",
+      destination: "Themed Costume Day",
+      image: costume,
+      duration: "Full Day",
+      price: "₹3,500",
+      capacity: "Up to 100 people",
+      description: "Dress up in traditional costumes to experience and learn about diverse cultures."
+    },
+    {
+      id: "music-and-dance-festival",
+      destination: "Music and Dance Festival",
+      image: music,
+      duration: "Evening",
+      price: "₹4,000",
+      capacity: "Up to 200 people",
+      description: "Enjoy vibrant music and dance performances showcasing various cultural traditions."
+    },
+    {
+      id: "folklore-sessions",
+      destination: "Folklore Sessions",
+      image: folk,
+      duration: "2 Hours",
+      price: "₹2,000",
+      capacity: "Up to 40 people",
+      description: "Engage with storytellers sharing folk tales and legends from around the world."
+    },
+    {
+      id: "traditional-food-festival",
+      destination: "Traditional Food Festival",
+      image: food,
+      duration: "Full Day",
+      price: "₹6,000",
+      capacity: "Up to 100 people",
+      description: "Taste and celebrate a variety of traditional foods from different cultures."
+    },
+    {
+      id: "heritage-walks",
+      destination: "Heritage Walks",
+      image: heritage,
+      duration: "3 Hours",
+      price: "₹1,500",
+      capacity: "Up to 25 people",
+      description: "Explore historical sites and learn about cultural heritage through guided walks."
+    }
+  ],
+
+
+
+
+
+  "weekend-outings": [
+    {
+      id: "nature-hiking",
+      destination: "Nature Hiking",
+      image: hiking,
+      duration: "Full Day",
+      price: "₹3,500",
+      capacity: "Up to 25 people",
+      description: "Refreshing hiking trips in scenic locations to rejuvenate and build team connections in nature."
+    },
+    {
+      id: "beach-retreat",
+      destination: "Beach Retreat",
+      image: bbeach,
+      duration: "Weekend",
+      price: "₹8,000",
+      capacity: "Up to 40 people",
+      description: "Relaxing beach getaways with team activities, water sports, and bonfire sessions."
+    },
+    {
+      id: "adventure-park",
+      destination: "Adventure Park",
+      image: park,
+      duration: "Full Day",
+      price: "₹4,200",
+      capacity: "Up to 35 people",
+      description: "Thrilling adventure park experiences with zip-lining, rock climbing, and team challenges."
+    }
   ]
+
+  
 };
 
 // Service titles mapping
 const serviceTitles = {
   "corporate-trips": "Corporate Trips",
   "fun-fridays": "Fun Fridays",
+  "social-activities": "Social Activities",
   "team-building": "Team Building",
-  "conferences": "Conferences"
+  "conferences": "Conferences",
+  "cultural-events": "Cultural Events",
+  "weekend-outings": "Weekend Outings"
+
 };
 
 export default function ServiceDetail() {

@@ -13,7 +13,7 @@ const Footer = () => {
               <div className={styles.footerLogo}>
                 <FaBuilding />
               </div>
-              <h3>CorpConnect</h3>
+              <h3>CorpKites</h3>
             </div>
             <p>
               Transforming corporate culture through expertly planned events and
@@ -22,34 +22,36 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className={styles.footerSection}>
-            <h4>Our Services</h4>
-            <ul>
-              <li>Corporate Trips</li>
-              <li>Fun Fridays</li>
-              <li>Weekend Outings</li>
-              <li>Social Activities</li>
-              <li>Conferences</li>
-              <li>Team Building</li>
-            </ul>
-          </div>
+          <div className={styles.footerLinksContainer}>
+  <div className={styles.footerSection}>
+    <h4>Our Services</h4>
+    <ul>
+      <li>Corporate Trips</li>
+      <li>Fun Fridays</li>
+      <li>Weekend Outings</li>
+      <li>Social Activities</li>
+      <li>Conferences</li>
+      <li>Team Building</li>
+    </ul>
+  </div>
 
-          <div className={styles.footerSection}>
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/services">Our Services</a></li>
-              <li><a href="/contact">Contact Us</a></li>
-              <li><a href="/about">About Us</a></li>
-            </ul>
-          </div>
+  <div className={styles.footerSection}>
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/services">Our Services</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+      <li><a href="/about">About Us</a></li>
+    </ul>
+  </div>
+</div>
 
           <div className={styles.footerSection}>
             <h4>Contact Info</h4>
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}><FaEnvelope /></span>
-                <span>info@corpconnect.com</span>
+                <span>info@corpkites.com</span>
               </div>
               <div className={styles.contactItem}>
                 <span className={styles.contactIcon}><FaPhoneAlt /></span>
@@ -80,7 +82,7 @@ const Footer = () => {
 
         <div className={styles.footerBottom}>
           <div className={styles.footerBottomContent}>
-            <p>&copy; 2024 CorpConnect. All rights reserved.</p>
+            <p>&copy; 2024 corpkites. All rights reserved.</p>
             <div className={styles.footerLinks}>
               <a href="/privacy">Privacy Policy</a>
               <a href="/terms">Terms of Service</a>

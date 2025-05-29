@@ -14,6 +14,7 @@ import About from './Pages/About/About';
 import Services from './Pages/Services/Services';
 import ServiceDetail from './Pages/ServiceDetail/ServiceDetail';
 import EventFlow from './Pages/EventFlow/EventFlow';
+import UserEvents from './components/UserEvents/UserEvents';
 
 import { useEffect } from 'react';
 
@@ -65,6 +66,15 @@ function App() {
             }
           />
 
+          <Route
+            path="/my-events"
+            element={
+              <ProtectedRoute>
+                <UserEvents />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Catch-all route for 404 */}
           <Route path="*" element={<div className="not-found">Page Not Found</div>} />
         </Routes>
@@ -75,4 +85,5 @@ function App() {
 }
 
 export default App;
+
 

@@ -19,6 +19,7 @@ export default function AdminDashboard() {
     location: "",
     description: "",
   });
+  const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -27,6 +28,7 @@ export default function AdminDashboard() {
     }
     fetchEvents();
     setCompanies(companyList);
+    fetchEnrollments();
   }, []);
 
   const fetchEvents = async () => {
@@ -35,6 +37,15 @@ export default function AdminDashboard() {
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events", error);
+    }
+  };
+
+  const fetchEnrollments = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/admin/enrollments`);
+      setEnrollments(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      console.error("Error fetching enrollments:", error);
     }
   };
 
@@ -291,6 +302,39 @@ export default function AdminDashboard() {
           </tbody>
         </table>
       )}
+
+      <section className={styles.section}>
+        <h2>Event Enrollments</h2>
+        {enrollments.length === 0 ? (
+          <p>No enrollments yet.</p>
+        ) : (
+          <div className={styles.tableContainer}>
+            <table className={styles.enrollmentsTable}>
+              <thead>
+                <tr>
+                  <th>Event Name</th>
+                  <th>Company</th>
+                  <th>Employee Name</th>
+                  <th>Employee ID</th>
+                  <th>Enrollment Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {enrollments.map((enrollment) => (
+                  <tr key={enrollment.id}>
+                    <td>{enrollment.eventName}</td>
+                    <td>{enrollment.companyName}</td>
+                    <td>{enrollment.userName}</td>
+                    <td>{enrollment.userId}</td>
+                    <td>{new Date(enrollment.enrollmentDate).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
     </div>
   );
 }
+

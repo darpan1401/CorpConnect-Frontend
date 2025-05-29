@@ -13,10 +13,30 @@
 }
 
 .footerContent {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 2.5rem;
   margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+/* New container for the two footer sections */
+.footerLinksContainer {
+  display: flex;
+  flex-direction: row; /* always row */
+  gap: 2.5rem; /* spacing between sections */
+  justify-content: space-between; /* space between on desktop */
+}
+
+.footerSection {
+  flex: 1 1 25%;
+  min-width: 250px;
+  box-sizing: border-box;
+}
+
+.footerLinksContainer .footerSection {
+  min-width: 250px; /* same as default, overridden on mobile */
 }
 
 .footerBrand {
@@ -169,11 +189,6 @@
   .footerContainer {
     padding: 2.5rem 1.5rem 1rem;
   }
-
-  .footerContent {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
 }
 
 /* Mobile */
@@ -183,9 +198,14 @@
   }
 
   .footerContent {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 2rem;
     text-align: center;
+  }
+
+  .footerSection {
+    width: 100%;
+    min-width: auto;
   }
 
   .footerBrand {
@@ -208,6 +228,19 @@
 
   .contactItem {
     justify-content: center;
+  }
+
+  /* Keep footerLinksContainer flex row on mobile, allow wrap and center */
+  .footerLinksContainer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .footerLinksContainer .footerSection {
+    flex: 1 1 45%;
+    min-width: 140px;
+    text-align: center;
   }
 }
 

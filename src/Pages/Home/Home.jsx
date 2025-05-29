@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
-import { FaBullseye, FaBrain, FaBolt, FaHandshake } from "react-icons/fa";
+import { FaBullseye, FaBrain, FaBolt, FaHandshake,FaReact , FaMagic } from "react-icons/fa";
 import welcomeAnimation from "../../animations/home.json";
 import trips from "../../animations/trips.json";
 import ff from "../../animations/funfriday.json";
@@ -52,7 +52,7 @@ function Home() {
       animation: conf,
     },
     {
-      id: "annual-cultural-function",
+      id: "cultural-events",
       title: "Cultural Function", 
       description: "Celebrate corporate spirit through music, drama, and cultural performances that foster unity.",
       color: "#e67e22",
@@ -82,6 +82,16 @@ function Home() {
       title: "End-to-End Solutions",
       description: "From planning to execution, we handle everything so you can focus on your business.",
     },
+    {
+      icon: <FaMagic  />,
+      title: "Customized Event Experiences",
+      description: "We tailor every event to align perfectly with your company’s culture and goals.",
+    },
+    {
+      icon: <FaReact />,
+      title: "Tech-Enabled Efficiency",
+      description: "We leverage the latest tools to ensure a smooth, modern, and seamless event experience.",
+    }
   ];
 
   return (
@@ -91,7 +101,7 @@ function Home() {
         <div className={styles.container}>
           <div className={styles.welcomeContent}>
             <div className={styles.welcomeText}>
-              <h1 className={styles.welcomeTitle}>Welcome to CorpConnect</h1>
+              <h1 className={styles.welcomeTitle}>Welcome to Corpkites</h1>
               <p className={styles.welcomeSubtitle}>
                 Transforming corporate culture through expertly planned events and team-building experiences that create lasting connections and drive business success.
               </p>
@@ -155,20 +165,20 @@ function Home() {
                     ))}
                   </div>
                   <Link
-                    to={`/events/${category.id}/${
+                    to={`/services/${category.id}/${
                       category.id === "corporate-trips"
-                        ? "ct-2023-retreat"
+                        ? ""
                         : category.id === "fun-fridays"
-                        ? "ff-2023-cooking"
+                        ? ""
                         : category.id === "weekend-outings"
-                        ? "wo-2023-trek"
+                        ? ""
                         : category.id === "social-activities"
-                        ? "sa-2023-charity"
+                        ? ""
                         : category.id === "conferences"
-                        ? "conf-2023-tech"
-                        : category.id === "annual-cultural-function"
-                        ? "acf-2023"
-                        : "default-event"
+                        ? ""
+                        : category.id === "cultural-events"
+                        ? ""
+                        : ""
                     }`}
                   >
                     <button
@@ -188,7 +198,7 @@ function Home() {
       {/* Why Choose Us */}
       <section className={styles.whyChooseUs}>
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Why Choose CorpConnect?</h2>
+          <h2 className={styles.sectionTitle}>Why Choose corpkites?</h2>
           <p className={styles.sectionSubtitle}>
             Our deep understanding of corporate dynamics and proven expertise make us the perfect partner for your next event.
           </p>

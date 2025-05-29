@@ -19,7 +19,7 @@ export default function Header() {
     const isPublic = publicRoutes.includes(path);
 
     if (!user && !isPublic) {
-      // Close the mobile menu before showing the alert
+      
       setMenuOpen(false);
       
       Swal.fire({
@@ -78,7 +78,7 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>CorpConnect</div>
+      <div className={styles.logo}>CorpKites</div>
       
       <button 
         className={styles.navToggle} 
@@ -121,6 +121,17 @@ export default function Header() {
           Contact
         </a>
 
+        {role === "user" && (
+          <a
+            href="/my-events"
+            onClick={(e) => handleNavigation(e, "/my-events")}
+            className={styles.navLink}
+          >
+            My Events
+          </a>
+        )}
+        
+
 
         {!user && (
           <a
@@ -128,7 +139,7 @@ export default function Header() {
             onClick={(e) => handleNavigation(e, "/register")}
             className={styles.navLink}
           >
-            More
+            Signup
           </a>
         )}
 
@@ -176,3 +187,6 @@ export default function Header() {
     </header>
   );
 }
+
+
+

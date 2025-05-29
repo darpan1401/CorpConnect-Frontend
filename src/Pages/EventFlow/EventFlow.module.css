@@ -85,7 +85,7 @@
   animation: fadeIn 1s ease 0.2s both;
 }
 
-/* New Timeline Style Process Flow */
+/* Timeline Style */
 .processFlowTimeline {
   position: relative;
   max-width: 1000px;
@@ -198,13 +198,6 @@
   line-height: 1.6;
 }
 
-.stepArrow {
-  position: absolute;
-  color: #667eea;
-  font-size: 1.5rem;
-  animation: bounce 2s infinite;
-}
-
 .left .stepArrow {
   right: 10px;
   top: 50%;
@@ -216,6 +209,7 @@
   transform: rotate(180deg);
 }
 
+/* Benefits and CTA */
 .benefitsSection {
   padding: 5rem 0;
   background-color: #f8f9fa;
@@ -360,27 +354,46 @@
   text-align: center;
 }
 
-/* Media Queries for Responsive Design */
+/* ---------------------- MOBILE FIXES ---------------------- */
 @media (max-width: 992px) {
   .processStep {
     width: 100%;
     left: 0 !important;
     padding: 0 20px;
     text-align: left;
+    margin-left: 30px;
   }
 
   .processFlowTimeline::before {
-    left: 20px;
+    left: 15px;
+  }
+
+  .stepContent {
+    padding-left: 60px;
   }
 
   .left .stepIconContainer,
   .right .stepIconContainer {
-    left: -10px;
+    left: -15px;
     right: auto;
+    top: 0;
+  }
+
+  .stepIconContainer {
+    width: 40px;
+    height: 40px;
+  }
+
+  .stepIcon {
+    font-size: 1.2rem;
   }
 
   .stepNumber {
-    left: 20px;
+    left: 0;
+    top: 45px;
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
 
   .left .stepArrow,

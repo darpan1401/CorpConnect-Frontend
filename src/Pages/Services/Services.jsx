@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaGlassCheers, FaHandsHelping, FaPlane, FaMicrophone } from "react-icons/fa";
+import { FaGlassCheers, FaHandsHelping, FaPlane, FaMicrophone,FaTheaterMasks,FaCalendarWeek } from "react-icons/fa";
 import styles from "./Services.module.css";
 
 // Define the servicesData object
@@ -12,13 +12,14 @@ const servicesData = {
     icon: <FaGlassCheers />,
     features: ["Team Games", "Celebrations", "Stress Relief", "Social Bonding"]
   },
-  "team-building": {
-    id: "team-building",
-    title: "Team Building",
-    description: "Strengthen team bonds through collaborative activities",
+  "social-activities": {
+    id: "social-activities",
+    title: "Social Activities",
+    description: "Engaging events that foster collaboration and strengthen relationships",
     icon: <FaHandsHelping />,
-    features: ["Communication", "Collaboration", "Problem Solving", "Trust Building"]
+    features: ["Networking Events", "Cultural Activities", "Community Building", "Social Impact"]
   },
+
   "corporate-trips": {
     id: "corporate-trips",
     title: "Corporate Trips",
@@ -32,10 +33,24 @@ const servicesData = {
     description: "Professional conferences and seminars that drive knowledge sharing",
     icon: <FaMicrophone />,
     features: ["Knowledge Sharing", "Industry Insights", "Professional Growth", "Networking"]
+  },
+  "cultural-events": {
+    id: "cultural-events",
+    title: "Cultural Events",
+    description: "Celebrate diversity and heritage with vibrant cultural programs",
+    icon: <FaTheaterMasks />,  
+    features: ["Music & Dance Performances","Traditional Celebrations","Art Exhibitions","Cultural Workshops"]
+  },
+  "weekend-outings": {
+    id: "weekend-outings",
+    title: "Weekend Outings",
+    description: "Relaxing weekend activities and outings to boost team morale and work-life balance",
+    icon: <FaCalendarWeek />,
+    features: ["Recreation", "Team Bonding", "Stress Relief", "Work-Life Balance"]
   }
 };
 
-// Get all services as an array
+
 const getAllServices = () => {
   return Object.values(servicesData);
 };

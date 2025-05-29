@@ -43,7 +43,7 @@ export default function Login() {
             // Configure SweetAlert to prevent layout shifts
             Swal.fire({
               title: "Login Success",
-              text: `Welcome ${employeeName} to CorpConnect`,
+              text: `Welcome ${employeeName} to corpkites`,
               icon: "success",
               timer: 1500,
               showConfirmButton: false,
@@ -90,7 +90,7 @@ export default function Login() {
         </div>
 
         <div className={styles.rightSide}>
-          <h2 className={styles.appTitle}>CorpConnect</h2>
+          <h2 className={styles.appTitle}>corpkites</h2>
 
           <form onSubmit={formik.handleSubmit} className={styles.form}>
             <input

@@ -35,7 +35,7 @@ export default function HRDashboard() {
     try {
       const doc = new jsPDF();
       
-      // Add a gradient header
+      
       doc.setFillColor(102, 126, 234);
       doc.rect(0, 0, 210, 40, "F");
       
@@ -86,7 +86,7 @@ export default function HRDashboard() {
       doc.rect(0, 280, 210, 20, "F");
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(10);
-      doc.text("CorpConnect - Connecting Businesses", 105, 290, { align: "center" });
+      doc.text("corpkites - Connecting Businesses", 105, 290, { align: "center" });
       doc.text(`Generated on ${new Date().toLocaleDateString()}`, 105, 295, { align: "center" });
       
       // Save the PDF with a safe filename

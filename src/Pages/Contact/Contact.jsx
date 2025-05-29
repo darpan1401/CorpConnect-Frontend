@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Lottie from "lottie-react";
-import { FiPhone, FiMail } from "react-icons/fi"; // React Icons imported here
+import { FiPhone, FiMail } from "react-icons/fi";
+import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 import contactAnimation from "../../animations/contact";
 import styles from "./Contact.module.css";
 
@@ -17,26 +19,96 @@ const Contact = () => {
     message: "",
   });
 
+  const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [touchedFields, setTouchedFields] = useState({});
+
+  const validateForm = useCallback((data = formData) => {
+    const errors = {};
+    if (!data.name.trim()) errors.name = "Name is required";
+    if (!data.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      errors.email = "Email is invalid";
+    }
+    if (!data.eventType) errors.eventType = "Event type is required";
+    if (!data.participants || parseInt(data.participants) <= 0)
+      errors.participants = "Enter a valid number";
+    if (!data.message.trim()) errors.message = "Message is required";
+
+    setFormErrors(errors);
+    return errors;
+  }, [formData]);
+
+  useEffect(() => {
+    if (isSubmitted || Object.keys(touchedFields).length > 0) {
+      validateForm();
+    }
+  }, [formData, touchedFields, isSubmitted, validateForm]);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouchedFields((prev) => ({
+      ...prev,
+      [name]: true,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitted(true);
+    const errors = validateForm();
+
+    if (Object.keys(errors).length > 0) {
+      Swal.fire({
+        title: "Incomplete Form",
+        text: "Please fill in all required fields correctly.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
-    setSubmitStatus(null);
 
     try {
-      // Simulate form submission delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const serviceId = 'service_cyju9p8';
+      const templateId = 'template_eb1p24i';
+      const userId = 'UKAMQ8pRiXS1qfQSf';
 
-      setSubmitStatus("success");
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          event_type: formData.eventType,
+          participants: formData.participants,
+          preferred_date: formData.preferredDate,
+          budget: formData.budget,
+          message: formData.message,
+        },
+        userId
+      );
+
+      Swal.fire({
+        title: 'Success!',
+        text: 'Your message has been sent successfully!',
+        icon: 'success',
+        confirmButtonText: 'OK',
+      });
+
       setFormData({
         name: "",
         email: "",
@@ -48,12 +120,24 @@ const Contact = () => {
         budget: "",
         message: "",
       });
+      setTouchedFields({});
+      setIsSubmitted(false);
     } catch (error) {
       console.error("Error sending email:", error);
-      setSubmitStatus("error");
+
+      Swal.fire({
+        title: 'Error!',
+        text: 'Oops! Something went wrong. Please try again later.',
+        icon: 'error',
+        confirmButtonText: 'OK',
+      });
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const shouldShowError = (fieldName) => {
+    return (isSubmitted || touchedFields[fieldName]) && formErrors[fieldName];
   };
 
   return (
@@ -114,20 +198,9 @@ const Contact = () => {
               </ul>
             </div>
           </div>
-          
+
           <div className={styles["contact-form-container"]}>
             <h2>Send a Message</h2>
-
-            {submitStatus === "success" && (
-              <div className={styles["success-message"]}>
-                Your message has been sent successfully!
-              </div>
-            )}
-            {submitStatus === "error" && (
-              <div className={styles["error-message"]}>
-                Oops! Something went wrong. Please try again later.
-              </div>
-            )}
 
             <form onSubmit={handleSubmit} noValidate>
               <div className={styles["form-row"]}>
@@ -137,12 +210,16 @@ const Contact = () => {
                     type="text"
                     id="name"
                     name="name"
-                    required
                     value={formData.name}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="Your full name"
+                    className={shouldShowError('name') ? styles['input-error'] : ''}
                   />
+                  {shouldShowError('name') && (
+                    <div className={styles["field-error"]}>{formErrors.name}</div>
+                  )}
                 </div>
 
                 <div className={styles["form-group"]}>
@@ -151,12 +228,16 @@ const Contact = () => {
                     type="email"
                     id="email"
                     name="email"
-                    required
                     value={formData.email}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="you@example.com"
+                    className={shouldShowError('email') ? styles['input-error'] : ''}
                   />
+                  {shouldShowError('email') && (
+                    <div className={styles["field-error"]}>{formErrors.email}</div>
+                  )}
                 </div>
               </div>
 
@@ -169,6 +250,7 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="Your company (optional)"
                   />
@@ -182,6 +264,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="+1 555 123 4567"
                   />
@@ -194,10 +277,11 @@ const Contact = () => {
                   <select
                     id="eventType"
                     name="eventType"
-                    required
                     value={formData.eventType}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
+                    className={shouldShowError('eventType') ? styles['input-error'] : ''}
                   >
                     <option value="">Select event type</option>
                     <option value="wedding">Wedding</option>
@@ -205,6 +289,9 @@ const Contact = () => {
                     <option value="party">Party</option>
                     <option value="other">Other</option>
                   </select>
+                  {shouldShowError('eventType') && (
+                    <div className={styles["field-error"]}>{formErrors.eventType}</div>
+                  )}
                 </div>
 
                 <div className={styles["form-group"]}>
@@ -213,13 +300,17 @@ const Contact = () => {
                     type="number"
                     id="participants"
                     name="participants"
-                    required
                     min="1"
                     value={formData.participants}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="Number of participants"
+                    className={shouldShowError('participants') ? styles['input-error'] : ''}
                   />
+                  {shouldShowError('participants') && (
+                    <div className={styles["field-error"]}>{formErrors.participants}</div>
+                  )}
                 </div>
               </div>
 
@@ -232,6 +323,7 @@ const Contact = () => {
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -244,6 +336,7 @@ const Contact = () => {
                     name="budget"
                     value={formData.budget}
                     onChange={handleChange}
+                    onBlur={handleBlur}
                     disabled={isSubmitting}
                     placeholder="Your budget"
                   />
@@ -255,12 +348,16 @@ const Contact = () => {
                 <textarea
                   id="message"
                   name="message"
-                  required
                   value={formData.message}
                   onChange={handleChange}
+                  onBlur={handleBlur}
                   disabled={isSubmitting}
                   placeholder="Tell us more about your event..."
+                  className={shouldShowError('message') ? styles['input-error'] : ''}
                 />
+                {shouldShowError('message') && (
+                  <div className={styles["field-error"]}>{formErrors.message}</div>
+                )}
               </div>
 
               <button
@@ -285,3 +382,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

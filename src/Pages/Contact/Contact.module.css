@@ -1,3 +1,4 @@
+
 .contact {
   min-height: 100vh;
   width: 100%;
@@ -220,10 +221,13 @@
 .form-group {
   margin-bottom: 1.25rem;
   width: 100%;
+  position: relative;
+  min-height: 80px; /* Provide consistent height for form groups */
 }
 
 .form-group.message-group {
-  margin-bottom: 1.5rem; /* Slightly more space after message */
+  margin-bottom: 1.5rem;
+  min-height: 150px; /* Larger min-height for message group */
 }
 
 .form-group label {
@@ -244,6 +248,7 @@
   transition: all 0.3s ease;
   background-color: #f8f9fa;
   font-family: inherit;
+  margin-bottom: 0.25rem;
 }
 
 .form-group input:focus,
@@ -310,12 +315,7 @@
 }
 
 .error-message {
-  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
-  color: #721c24;
-  padding: 1.25rem; /* Reduced padding */
-  border-radius: 12px;
-  margin-bottom: 1.25rem; /* Reduced margin */
-  border: 1px solid #f5c6cb;
+  display: none;
 }
 
 .loading-spinner {
@@ -331,6 +331,24 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Add these styles for improved error handling */
+.input-error {
+  border-color: #e53e3e !important;
+  box-shadow: 0 0 0 1px rgba(229, 62, 62, 0.5) !important;
+  background-color: #fff5f5 !important;
+}
+
+.field-error {
+  color: #e53e3e;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  display: block;
+  font-weight: 500;
+  line-height: 1.2;
+  position: relative;
+  padding-left: 0.5rem;
 }
 
 /* Media Queries */
@@ -488,3 +506,4 @@
     padding: 1.25rem;
   }
 }
+

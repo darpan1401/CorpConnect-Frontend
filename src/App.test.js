@@ -9,7 +9,7 @@ test('renders application', () => {
     </BrowserRouter>
   );
   // Update test to check for something that actually exists in the app
-  const headerElement = screen.getByText(/CorpConnect/i);
+  const headerElement = screen.getByText(/corpkites/i);
   expect(headerElement).toBeInTheDocument();
 });
 

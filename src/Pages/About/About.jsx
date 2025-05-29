@@ -95,7 +95,7 @@ const About = () => {
       {/* Hero Section */}
       <section className={styles.aboutHero}>
         <div className={styles.container}>
-          <h1 className={styles.aboutTitle}>About CorpConnect</h1>
+          <h1 className={styles.aboutTitle}>About Corpkites</h1>
           <p className={styles.aboutSubtitle}>
             We're redefining corporate culture by creating powerful experiences that inspire connection, 
             collaboration, and growth.
@@ -115,7 +115,7 @@ const About = () => {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Vision & Mission</h2>
           <p className={styles.sectionSubtitle}>
-            Founded in 2020, CorpConnect has organized 500+ events for 200+ companies, 
+            Founded in 2020, corpkites has organized 500+ events for 200+ companies, 
             helping them build stronger teams and cultures.
           </p>
           
@@ -159,7 +159,7 @@ const About = () => {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Core Values</h2>
           <p className={styles.sectionSubtitle}>
-            These principles guide everything we do at CorpConnect.
+            These principles guide everything we do at corpkites.
           </p>
           
           <div className={styles.valuesGrid}>

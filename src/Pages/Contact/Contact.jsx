@@ -167,7 +167,7 @@ const Contact = () => {
                 </div>
                 <div className={styles["method-info"]}>
                   <h3>Phone</h3>
-                  <p className={styles["method-details"]}>+1 (555) 123-4567</p>
+                  <p className={styles["method-details"]}>+91 8317284681</p>
                   <p className={styles["method-description"]}>
                     Call us for quick inquiries and direct support.
                   </p>
@@ -180,7 +180,7 @@ const Contact = () => {
                 </div>
                 <div className={styles["method-info"]}>
                   <h3>Email</h3>
-                  <p className={styles["method-details"]}>events@example.com</p>
+                  <p className={styles["method-details"]}>info@corpkites.com</p>
                   <p className={styles["method-description"]}>
                     Send us an email anytime, we check daily.
                   </p>
@@ -284,10 +284,12 @@ const Contact = () => {
                     className={shouldShowError('eventType') ? styles['input-error'] : ''}
                   >
                     <option value="">Select event type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="conference">Conference</option>
-                    <option value="party">Party</option>
-                    <option value="other">Other</option>
+                    <option value="Corporate Trips">Corporate Trips</option>
+                    <option value="Fun Fridays">Fun Fridays</option>
+                    <option value="Weekend Outings">Weekend Outings</option>
+                    <option value="Social Activities">Social Activities</option>
+                    <option value="Conferences">Conferences</option>
+                    <option value="Cultural Function">Cultural Function</option>
                   </select>
                   {shouldShowError('eventType') && (
                     <div className={styles["field-error"]}>{formErrors.eventType}</div>

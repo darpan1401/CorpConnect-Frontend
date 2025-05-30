@@ -7,6 +7,7 @@ import ff from "../../animations/funfriday.json";
 import outing from "../../animations/outing.json";
 import social from "../../animations/social.json";
 import conf from "../../animations/conf.json";
+import culture from "../../animations/cultural.json";
 import styles from "./Home.module.css";
 
 function Home() {
@@ -57,7 +58,7 @@ function Home() {
       description: "Celebrate corporate spirit through music, drama, and cultural performances that foster unity.",
       color: "#e67e22",
       features: ["Team Bonding", "Talent Showcase", "Entertainment", "Corporate Culture"],
-      animation: conf,
+      animation: culture,
     },
   ];
 

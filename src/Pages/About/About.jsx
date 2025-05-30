@@ -115,7 +115,7 @@ const About = () => {
         <div className={styles.container}>
           <h2 className={styles.sectionTitle}>Our Vision & Mission</h2>
           <p className={styles.sectionSubtitle}>
-            Founded in 2020, corpkites has organized 500+ events for 200+ companies, 
+            Founded in 2025, Corpkites has organized 500+ events for 200+ companies, 
             helping them build stronger teams and cultures.
           </p>
           
